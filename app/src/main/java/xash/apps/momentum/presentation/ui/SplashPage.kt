@@ -49,6 +49,8 @@ import androidx.compose.ui.unit.sp
 import xash.apps.momentum.R
 import xash.apps.momentum.data.manager.UrbanistMedium
 import xash.apps.momentum.data.manager.UrbanistRegular
+import xash.apps.momentum.presentation.components.AutoAnimatedLinearProgress
+import xash.apps.momentum.presentation.components.AutoAnimatedLinearProgress2
 import xash.apps.momentum.ui.theme.blue
 import xash.apps.momentum.ui.theme.peanut
 import xash.apps.momentum.ui.theme.purple
@@ -350,47 +352,3 @@ fun SplashPage(){
     }
 }
 
-@Composable
-fun AutoAnimatedLinearProgress() {
-    var progress by remember { mutableFloatStateOf(0f) }
-
-    val animatedProgress by animateFloatAsState(
-        targetValue = progress,
-        animationSpec = tween(durationMillis = 3000) // 1 sec animation
-    )
-
-    // Start animation when composable enters composition
-    LaunchedEffect(Unit) {
-        progress = 0.7f
-    }
-
-    LinearProgressIndicator(
-    progress = { animatedProgress },
-    modifier = Modifier
-                .fillMaxWidth()
-                .height(10.dp),
-    color = peanut
-    )
-}
-@Composable
-fun AutoAnimatedLinearProgress2() {
-    var progress by remember { mutableFloatStateOf(0f) }
-
-    val animatedProgress by animateFloatAsState(
-        targetValue = progress,
-        animationSpec = tween(durationMillis = 3000) // 1 sec animation
-    )
-
-    // Start animation when composable enters composition
-    LaunchedEffect(Unit) {
-        progress = 0.6f
-    }
-
-    LinearProgressIndicator(
-        progress = { animatedProgress },
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(10.dp),
-        color = blue
-    )
-}
