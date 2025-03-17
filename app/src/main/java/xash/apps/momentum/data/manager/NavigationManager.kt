@@ -12,7 +12,7 @@ import xash.apps.momentum.presentation.ui.SplashPage
 fun AppNavigation(){
     val navController= rememberNavController()
 
-    NavHost(navController = navController, startDestination = "signup"){
+    NavHost(navController = navController, startDestination = "splash"){
         composable("splash") { SplashPage() }
         composable("login") { LoginPage() }
         composable("signup") { SignupPage() }
