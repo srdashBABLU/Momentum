@@ -2,8 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp") version "2.0.21-1.0.27" // Use the latest version
 }
-
+//
 android {
     namespace = "xash.apps.momentum"
     compileSdk = 35
@@ -44,6 +45,23 @@ dependencies {
     // lets add the navigation dependencies!
     // Navigation for Jetpack Compose (if using Compose)
     implementation(libs.androidx.navigation.compose)
+
+    // Room Database
+    val roomVersion = "2.6.1" // Use the latest stable version
+
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+
+    // Room KSP for annotation processing
+    ksp("androidx.room:room-compiler:$roomVersion")
+
+    // Lifecycle and Coroutine dependencies
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
+
+    // Jetpack Compose (Optional but required for UI)
+    implementation("androidx.compose.ui:ui:1.7.8")
+    implementation("androidx.compose.material3:material3:1.3.1")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

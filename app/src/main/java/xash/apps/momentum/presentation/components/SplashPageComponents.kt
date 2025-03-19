@@ -38,6 +38,7 @@ fun AutoAnimatedLinearProgress() {
         color = peanut
     )
 }
+
 @Composable
 fun AutoAnimatedLinearProgress2() {
     var progress by remember { mutableFloatStateOf(0f) }
