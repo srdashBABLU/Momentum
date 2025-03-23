@@ -5,4 +5,7 @@ import androidx.room.PrimaryKey
 
 // Room Entity
 @Entity(tableName = "xp_table")
-data class XpEntity(@PrimaryKey val id: Int = 1, val xp: Int)
+data class XpEntity(
+    @PrimaryKey val id: Int = 1,
+    val xp: Int
+)
