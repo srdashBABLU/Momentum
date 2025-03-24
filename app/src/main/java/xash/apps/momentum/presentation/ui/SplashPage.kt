@@ -42,6 +42,8 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -98,14 +100,26 @@ fun SplashPage(){
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                CircularProgressIndicator(
-                    progress = {
-                        animatedProgress // 70% progress
-                    },
-                    color = Color.White,
-                    strokeWidth = 8.dp,
-                    modifier = Modifier.size(78.dp)
-                )
+                Box(contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator(
+                        progress = {
+                            animatedProgress // 70% progress
+                        },
+                        color = Color.White,
+                        strokeWidth = 8.dp,
+                        modifier = Modifier.size(78.dp)
+                    )
+
+                    Text(
+                        text = "${(animatedProgress * 100).toInt()}%",
+                        color = Color.White,
+                        style = TextStyle(
+                            fontFamily = UrbanistMedium,
+                            fontSize = 20.sp
+                        ),
+                        fontWeight = FontWeight.Bold,
+                    )
+                }
                 Column(
                     modifier = Modifier.fillMaxHeight(),
                     horizontalAlignment = Alignment.CenterHorizontally,
